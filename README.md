@@ -24,30 +24,30 @@
 
 *To run the code that generates the paper figures, clone repo and execute `python paper_figures_convolution.py; python paper_figures_moving_window.py`, for the daily updates execute `python daily_cron_job.py`, and to refresh the tables execute `python post_analysis.py`*
 
-We model universal curves of reported COVID-19 daily infections and related deaths using a linear regression with standard errors and a weekly profile in the log space (making it an exponential regression in linear space). Using currently available data from [N.Y. Times](https://github.com/nytimes/covid-19-data) and [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19), we fit our model parameters to the most recent three weeks and provide projections for the next three months, assuming no new mitigating factors and the same growth rate continues during that time. In addition, we provide a time-series of growth rates for each locale, as well estimates for the current week-to-week change in growth rate and its statistical significance, an indicator of where changinge behaviors may be increasing spread (when the new daily case count is high) or where new outbreaks may be occuring (when the new daily case count is low).
+We model universal curves of the time series of daily COVID-19 reported infections and related deaths using a linear regression with standard errors and a weekly profile in the log space (making it an exponential regression in linear space). Using currently available data from [N.Y. Times](https://github.com/nytimes/covid-19-data) and [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19), we fit our model parameters to the most recent three weeks and provide projections for the next three months, assuming no new mitigating factors and the same growth rate continues during that time. In addition, we provide a time series of growth rates for each locale (e.g., country, state, and county), as well as give estimates for the current week-to-week change in growth rate and its statistical significance, an indicator of increasing spread (when the new daily case count is high) or where new outbreaks may be occuring (when the new daily case count is low).
 
 ## Example Figures
 
 ![boxplot](/static_figures/country_name_field.png?)
-**Figure 1:** Week-to-week change in daily growth rate vs. daily growth rate among nations, filtered to nations where the likelihood to have this magnitude of change in daily growth rate or greater (the p-value) is less than 10%. Nations in the top-right are likely to be accelerating an already high growth rate, in the top-left are likely to be reversing negative growth rate, in the bottom-left are likely to be accelerating an already strongly negative growth rate, and in the bottom-right are likely to be reversing a positive growth rate. This plot is generated from the [International Parameters CSV](https://covid-figures.s3-us-west-2.amazonaws.com/2020_05_21_date_smoothed_moving_window_21_days_countries_region_statsmodels/simplified_state_report.csv).
+**Figure 1:** Week-to-week change in daily growth rate vs. daily growth rate among nations, filtered to nations where the likelihood to have this magnitude of relative change in daily growth rate or greater (the p-value) is less than 10%. Nations in the top-right are likely to be accelerating an already high growth rate, in the top-left are likely to be reversing negative growth rate, in the bottom-left are likely to be accelerating an already strongly negative growth rate, and in the bottom-right are likely to be reversing a positive growth rate. This plot is generated from the [International Parameters CSV](https://covid-figures.s3-us-west-2.amazonaws.com/2020_05_21_date_smoothed_moving_window_21_days_countries_region_statsmodels/simplified_state_report.csv).
 
 ![boxplot](/static_figures/statsmodels_solutions_filled_quantiles.png?)
-**Figure 2a:** Three-week moving-window model prediction curves for three months and COVID-19 Daily Reported Cases and Related Deaths in the U.S. This is what we predict would happen if the trend from the last three weeks continued for the next three months. 5th-95th percentile and 25th-75th percentile regions are displayed in light and dark colors, respectively.
+**Figure 2a:** Three-week moving-average model prediction curves for three months and COVID-19 Daily Reported Cases and Related Deaths in the U.S. This is what we predict would happen if the trend from the last three weeks continued for the next three months. The 5th-95th percentile and 25th-75th percentile regions are displayed in light and dark colors, respectively.
 
 ![boxplot](/static_figures/statsmodels_solutions_cumulative_filled_quantiles.png?)
-**Figure 2b:** Three-week moving-window model prediction curves for three months and COVID-19 Cumulative Reported Cases and Related Deaths in the U.S. This is what we predict would happen if the trend from the last three weeks continued for the next three months. 5th-95th percentile and 25th-75th percentile regions are displayed in light and dark colors, respectively
+**Figure 2b:** Three-week moving-average model prediction curves for three months and COVID-19 Cumulative Reported Cases and Related Deaths in the U.S. This is what we predict would happen if the trend from the last three weeks continued for the next three months. The 5th-95th percentile and 25th-75th percentile regions are displayed in light and dark colors, respectively
 
 ![boxplot](/static_figures/statsmodels_growth_rate_time_series.png?)
-**Figure 2c:** Three-week moving-window model growth rate curves for three months and COVID-19 Cumulative Reported Cases and Related Deaths in the U.S.
+**Figure 2c:** 3-week moving-average model growth rate curves for three months and COVID-19 Cumulative Reported Cases and Related Deaths in the U.S.
 
 ![boxplot](/static_figures/acceleration_diagram.png?)
-**Figure 3a:** Schematic diagram demonstrating how the Week-over-Week Change in 3-Week Avg. Daily Relative Growth Rate is computed.
+**Figure 3a:** Schematic diagram demonstrating how the week-to-week change in 3-week moving average daily relative growth rate is computed.
 
 ![boxplot](/static_figures/intl_simplified_boxplot_for_positive_slope_statsmodels.png?)
-**Figure 3b:** Model parameter estimates for the current growth rate of COVID- 19 for each of the top 50 nations by current number of cases, with 5%, 25%, 50%, 75%, and 95% percentiles, ranked from highest to lowest median. 
+**Figure 3b:** Model parameter estimates for the current growth rate of COVID-19 for each of the top 50 nations by current number of cases, with 5%, 25%, 50%, 75%, and 95% percentiles, ranked from highest to lowest median. 
 
 ![boxplot](/static_figures/intl_simplified_boxplot_for_positive_slope_statsmodels_acc.png?)
-**Figure 3c:** Model parameter estimates for the week-over-week change in growth rate of COVID- 19 for each of the top 50 nations by current number of cases, with 5%, 25%, 50%, 75%, and 95% percentiles, ranked from highest to lowest median. States  higher in the list are candidates for new waves or outbreaks.
+**Figure 3c:** Model parameter estimates for the week-to-week change in growth rate of COVID-19 for each of the top 50 nations by current number of cases, with 5%, 25%, 50%, 75%, and 95% percentiles, ranked from highest to lowest median. States higher in the list are candidates for new outbreaks.
 
 More figures can be found in the Figure Browser links at the top of this page. 
 
